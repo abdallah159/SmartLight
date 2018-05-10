@@ -91,19 +91,20 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
     }
 
-
-
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked)
         {
             lampImageView.setImageResource(R.drawable.lamp_on);
             Toast.makeText(this, "Light is turned on", Toast.LENGTH_SHORT).show();
+            databaseReference.child("Action").setValue("ACTION_ON");
         }
         else if (!isChecked)
         {
             lampImageView.setImageResource(R.drawable.lamp_off);
             Toast.makeText(this, "Light is Turned off", Toast.LENGTH_SHORT).show();
+            databaseReference.child("Action").setValue("ACTION_OFF");
+
         }
     }
 
